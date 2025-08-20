@@ -48,7 +48,7 @@ if __name__ == "__main__":
     if cfg.DATASETS.NAMES == 'VehicleID':
         for trial in range(10):
             train_loader, train_loader_normal, val_loader, num_query, num_classes, camera_num, view_num = make_dataloader(cfg)
-            rank_1, rank5 = do_inference(cfg,
+            rank_1, rank5, distmat, img_path_list, num_query = do_inference(cfg,
                  model,
                  val_loader,
                  num_query)
@@ -62,8 +62,13 @@ if __name__ == "__main__":
             logger.info("rank_1:{}, rank_5 {} : trial : {}".format(rank_1, rank5, trial))
         logger.info("sum_rank_1:{:.1%}, sum_rank_5 {:.1%}".format(all_rank_1.sum()/10.0, all_rank_5.sum()/10.0))
     else:
-       do_inference(cfg,
+        rank_1, rank5, distmat, img_path_list, num_query = do_inference(cfg,
                  model,
                  val_loader,
                  num_query)
+        # Save for visualization
+        import numpy as np
+        np.save(os.path.join(output_dir, 'distmat.npy'), distmat)
+        np.save(os.path.join(output_dir, 'img_path_list.npy'), img_path_list)
+        np.save(os.path.join(output_dir, 'num_query.npy'), np.array([num_query]))
 
