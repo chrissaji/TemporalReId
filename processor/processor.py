@@ -179,6 +179,6 @@ def do_inference(cfg,
     for r in [1, 5, 10]:
         logger.info("CMC curve, Rank-{:<3}:{:.1%}".format(r, cmc[r - 1]))
     # Save for visualization
-    return cmc[0], cmc[4], distmat, img_path_list, num_query
+    return cmc[0], cmc[4], distmat, img_path_list, num_query, pids, camids
 
 

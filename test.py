@@ -62,7 +62,7 @@ if __name__ == "__main__":
             logger.info("rank_1:{}, rank_5 {} : trial : {}".format(rank_1, rank5, trial))
         logger.info("sum_rank_1:{:.1%}, sum_rank_5 {:.1%}".format(all_rank_1.sum()/10.0, all_rank_5.sum()/10.0))
     else:
-        rank_1, rank5, distmat, img_path_list, num_query = do_inference(cfg,
+        rank_1, rank5, distmat, img_path_list, num_query, pids, camids = do_inference(cfg,
                  model,
                  val_loader,
                  num_query)
@@ -71,4 +71,6 @@ if __name__ == "__main__":
         np.save(os.path.join(output_dir, 'distmat.npy'), distmat)
         np.save(os.path.join(output_dir, 'img_path_list.npy'), img_path_list)
         np.save(os.path.join(output_dir, 'num_query.npy'), np.array([num_query]))
+        np.save(os.path.join(output_dir, 'pids.npy'), np.array(pids))
+        np.save(os.path.join(output_dir, 'camids.npy'), np.array(camids))
 
