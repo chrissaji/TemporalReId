@@ -173,11 +173,12 @@ def do_inference(cfg,
             remaining = avg_time * (total_batches - (n_iter + 1))
             print(f"[Inference] Batch {n_iter + 1}/{total_batches} | Elapsed: {elapsed:.1f}s | ETA: {remaining:.1f}s", flush=True)
 
-    cmc, mAP, _, _, _, _, _ = evaluator.compute()
+    cmc, mAP, distmat, pids, camids, qf, gf = evaluator.compute()
     logger.info("Validation Results ")
     logger.info("mAP: {:.1%}".format(mAP))
     for r in [1, 5, 10]:
         logger.info("CMC curve, Rank-{:<3}:{:.1%}".format(r, cmc[r - 1]))
-    return cmc[0], cmc[4]
+    # Save for visualization
+    return cmc[0], cmc[4], distmat, img_path_list, num_query, pids, camids
 
 

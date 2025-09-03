@@ -13,7 +13,7 @@ MODEL:
   IF_WITH_CENTER: 'no'
   NAME: 'transformer'
   NO_MARGIN: True
-  DEVICE_ID: ('2')
+  DEVICE_ID: ('0')
   TRANSFORMER_TYPE: 'vit_base_patch16_224_TransReID'
   STRIDE_SIZE: [12, 12]
   SIE_CAMERA: True
@@ -34,18 +34,18 @@ INPUT:
 
 DATASETS:
   NAMES: ('veri')
-  ROOT_DIR: ('C:/Users/chris/Desktop/TransReID-main c/data')
+  ROOT_DIR: ('c:/D Drive/GitHub/TemporalReId/data')
 
 DATALOADER:
   SAMPLER: 'softmax_triplet'
   NUM_INSTANCE: 4
-  NUM_WORKERS: 8
+  NUM_WORKERS: 4
 
 SOLVER:
   OPTIMIZER_NAME: 'SGD'
   MAX_EPOCHS: 120
   BASE_LR: 0.01
-  IMS_PER_BATCH: 64
+  IMS_PER_BATCH: 32
   WARMUP_METHOD: 'linear'
   LARGE_FC_LR: False
   CHECKPOINT_PERIOD: 120
