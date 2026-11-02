@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.python-version
+
+# Dataset payloads: VeRi-776 and friends are licensed and never committed
+data/
+/datasets/data/
+
+# Model weights and checkpoints
+pretrained/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.bin
+*.onnx
+
+# Training and evaluation outputs
+logs/
+comparison_logs/
+output/
+runs/
+wandb/
+*.npy
+*.pkl
+/result*.png
+/tcm_logic_visualization.png
+/validation_output.txt
+
+# LaTeX build files
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Editors and local tool state
+.vscode/
+.idea/
+.DS_Store
+.claude/settings.local.json

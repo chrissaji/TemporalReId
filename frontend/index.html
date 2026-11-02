@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Re-ID Visualization</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <nav id="navbar">
+    <div class="nav-brand">
+
+      <span>Vehicle Re-ID <span class="accent">Visualizer</span></span>
+    </div>
+    <div class="nav-links">
+      <a href="#" data-tab="query" class="nav-link active">Query Browser</a>
+      <a href="#" data-tab="metrics" class="nav-link">Performance</a>
+      <a href="#" data-tab="speedup" class="nav-link">Speedup</a>
+      <a href="#" data-tab="plots" class="nav-link">Research Plots</a>
+    </div>
+  </nav>
+
+  <main id="app">
+    <!-- QUERY BROWSER TAB -->
+    <section id="tab-query" class="tab-content active">
+      <div class="section-header">
+        <h1>Vehicle Query Browser</h1>
+        <p>Select a query vehicle to see cross-camera Re-ID matches</p>
+      </div>
+      <div class="query-layout">
+        <div class="vehicle-grid-panel">
+          <div class="panel-header">
+            <h3>Query Vehicles</h3>
+            <div class="pagination" id="pagination"></div>
+          </div>
+          <div id="vehicle-grid" class="vehicle-grid"></div>
+        </div>
+        <div class="match-panel" id="match-panel">
+          <div class="empty-state" id="empty-state">
+            <div class="empty-icon">🔍</div>
+            <h3>Select a Vehicle</h3>
+            <p>Click any vehicle thumbnail to view its cross-camera matches</p>
+          </div>
+          <div id="match-results" class="match-results hidden"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS TAB -->
+    <section id="tab-metrics" class="tab-content">
+      <div class="section-header">
+        <h1>Performance Metrics</h1>
+        <p>Baseline TransReID vs TCM-Enhanced comparison on VeRi-776</p>
+      </div>
+      <div class="metrics-grid" id="metrics-grid"></div>
+      <div class="chart-row" id="chart-row"></div>
+      <div class="table-section" id="ablation-section"></div>
+    </section>
+
+    <!-- SPEEDUP TAB -->
+    <section id="tab-speedup" class="tab-content">
+      <div class="section-header">
+        <h1>Search Space Reduction & Speedup</h1>
+        <p>TCM filtering efficiency analysis</p>
+      </div>
+      <div id="speedup-content"></div>
+    </section>
+
+    <!-- PLOTS TAB -->
+    <section id="tab-plots" class="tab-content">
+      <div class="section-header">
+        <h1>Research Visualizations</h1>
+        <p>Generated plots from experimental evaluation</p>
+      </div>
+      <div class="plots-grid" id="plots-grid"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
